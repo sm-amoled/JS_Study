@@ -4,9 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
+    <style>
+        body { font-size: 1rem; }
+    </style>
+
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
+  
   <body>
     <script src="script.js"></script>
+    <h1>JavaScript</h1>
+    
+    <script>
+        function Person(username, age) {
+            this.username = username;
+            this.age = age;
+            this.introduce = function () {
+                console.log("안녕 나는 " + age + "살 " + username + "이야!");
+            }
+        }
+        
+        var p1 = new Person('성민', 22);
+        p1.introduce();
+    </script>
   </body>
 </html> 
