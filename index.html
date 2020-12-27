@@ -6,26 +6,83 @@
     <title>repl.it</title>
     <style>
         body { font-size: 1rem; }
-    </style>
-
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  
-  <body>
-    <script src="script.js"></script>
-    <h1>JavaScript</h1>
-    
-    <script>
-        function Person(username, age) {
-            this.username = username;
-            this.age = age;
-            this.introduce = function () {
-                console.log("안녕 나는 " + age + "살 " + username + "이야!");
-            }
+        h1 {
+            background : #FFF000;
+        }
+        .gomsun{
+            display: inline-block;
+            list-style: none;
+        }
+        .gomsun img{
+            max-height : 130px;
+            object-fit: scale-down;
+        }
+        .link-google {
+            color: red;
+        }
+        .special {
+            background: pink;
+        }
+        .menu {
+            display: felx;
+        }
+        .menu-link {
+            margin: 0.1em;
+            padding: 0.3em;
+            color: #fff;
+            background: dodgerblue;
+            text-decoration: none;
+            list-style: none;
+        }
+        .menu-active {
+            background: orange;
+        }
+        .menu {
+            background: yellowgreen;
         }
         
-        var p1 = new Person('성민', 22);
-        p1.introduce();
+    </style>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    
+    
+  </head>
+  <body>
+    <h1 id="main-title"> 
+        Event
+    </h1>
+
+    <nav class="menu">
+        <a href="#" class="menu-link" deta-menu="1">menu 1</a>
+        <a href="#" class="menu-link" deta-menu="2">menu 2</a>
+        <a href="#" class="menu-link" deta-menu="3">menu 3</a>
+    </nav>
+    
+    <script>
+        // var menuLinks = document.querySelectorAll('.menu-link');
+        // var currentMenu;
+        
+        // function menuActiveHandler() {
+        //     console.log('click');
+            
+        //     if(currentMenu) {
+        //         currentMenu.classList.remove('menu-active');
+        //     }
+        //     this.classList.add('menu-active');
+        //     currentMenu = this;
+        // }
+        
+        var currentMenu;
+        var menu = document.querySelector('.menu');
+        
+        function clickHandler(e) {
+            if(currentMenu) {
+                currentMenu.classList.remove('menu-active');
+            }
+            currentMenu = e.target;
+            e.target.classList.add('menu-active');
+        }
+        
+        menu.addEventListener('click', clickHandler);
     </script>
   </body>
 </html> 
