@@ -5,20 +5,83 @@
         <meta name="viewport" content="width=device-width">
         <title>repl.it</title>
         <link rel="stylesheet" href="style.css">
+        
+        
+        <style>
+            img {
+                max-height : 70px;
+            }
+            .container {
+                /*viewport 100%*/
+                display: grid;
+                
+                /*grid-template-columns: 40% 60%;*/
+                grid-template-columns: 4fr 6fr 4fr;
+                grid-gap: 1rem;
+                
+                background: lightgray;
+            }
+            
+            .item {
+                background: rgba(255, 0, 0, 0.5);
+            }
+            
+            .item:nth-child(odd) {
+                background: rgba(255, 255, 0, 0.5); 
+            }
+            
+            .item:nth-child(1) {
+            }
+            .item:nth-child(2) {
+            }
+            .item:nth-child(3) {
+            }
+            
+        </style>
     </head>
     
     <body>
          <div class="container">
-             <section class="item item-a">
-                <h1>Section a</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue quam, non euismod velit. Aliquam id vulputate neque. Aliquam erat volutpat. Donec aliquam ipsum velit, a malesuada ante facilisis sed. Pellentesque arcu neque, malesuada sit amet iaculis a, pulvinar vel magna. Fusce ac tincidunt sem. In tincidunt orci in interdum vestibulum.</p>
-                </section>
-                <section class="item item-b">
-                <h1>Section b</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at congue quam, non euismod velit. Aliquam id vulputate neque. Aliquam erat volutpat. Donec aliquam ipsum velit, a malesuada ante facilisis sed. Pellentesque arcu neque, malesuada sit amet iaculis a, pulvinar vel magna. Fusce ac tincidunt sem. In tincidunt orci in interdum vestibulum.</p>
-            </section>
-            
+            <div class="item">
+                <h3>1</h3>
+                <img src = "images/gomsun1.jpeg">
+            </div>
+            <div class="item">
+                <h3>2</h3>
+                <img src = "images/gomsun2.jpeg">
+            </div>
+            <div class="item ">
+                <h3>3</h3>
+                <img src = "images/gomsun1.jpeg">
+            </div>
+            <div class="item">
+                <h3>4</h3>
+                <img src = "images/gomsun2.jpeg">
+            </div>
+            <div class="item ">
+                <h3>5</h3>
+                <img src = "images/gomsun1.jpeg">
+            </div>
+            <div class="item">
+                <h3>6</h3>
+                <img src = "images/gomsun2.jpeg">
+            </div>
+            <div class="item ">
+                <h3>7</h3>
+                <img src = "images/gomsun1.jpeg">
+            </div>
+            <div class="item">
+                <h3>8</h3>
+                <img src = "images/gomsun2.jpeg">
+            </div>
+            <div class="item ">
+                <h3>9</h3>
+                <img src = "images/gomsun1.jpeg">
+            </div>
+            <div class="item">
+                <h3>10</h3>
+                <img src = "images/gomsun2.jpeg">
+            </div>
          </div>
-         <footer>footer</footer>
-    </body>
+</body>
 </html> 
