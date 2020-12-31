@@ -6,82 +6,44 @@
         <title>repl.it</title>
         <link rel="stylesheet" href="style.css">
         
-        
         <style>
-            img {
-                max-height : 70px;
+            .box-container {
+                display: flex;
             }
-            .container {
-                /*viewport 100%*/
-                display: grid;
+            .box {
+                width: 100px;
+                height: 100px;
+                border: 2px solid black;
+                background: rgba(255, 255, 0, 0.7);
                 
-                /*grid-template-columns: 40% 60%;*/
-                grid-template-columns: 4fr 6fr 4fr;
-                grid-gap: 1rem;
-                
-                background: lightgray;
+                transition: 1s 2s;
+                /*transition은 수치에서 수치로 이동되는 중간과정을 애니메이션으로 만들어준다 → 숫자로 된 속성이 아니면 적용되지 않는다 (auto)*/
             }
-            
-            .item {
-                background: rgba(255, 0, 0, 0.5);
+            .box:hover {
+                /*transform: scale(2) rotate(30deg) skew(30deg);*/
+                /*transform: translate(30px, 10px);*/
+                /*transform: translateX(30px);*/
+                /*transform: translateY(30px);*/
+                transform: scale(2);
+                /*transform-origin: left top;*/
+                /*transform-origin: 0% 50%;*/
+                /*transform: rotate(30deg);*/
             }
-            
-            .item:nth-child(odd) {
-                background: rgba(255, 255, 0, 0.5); 
-            }
-            
-            .item:nth-child(1) {
-            }
-            .item:nth-child(2) {
-            }
-            .item:nth-child(3) {
-            }
-            
         </style>
     </head>
     
     <body>
-         <div class="container">
-            <div class="item">
-                <h3>1</h3>
-                <img src = "images/gomsun1.jpeg">
-            </div>
-            <div class="item">
-                <h3>2</h3>
-                <img src = "images/gomsun2.jpeg">
-            </div>
-            <div class="item ">
-                <h3>3</h3>
-                <img src = "images/gomsun1.jpeg">
-            </div>
-            <div class="item">
-                <h3>4</h3>
-                <img src = "images/gomsun2.jpeg">
-            </div>
-            <div class="item ">
-                <h3>5</h3>
-                <img src = "images/gomsun1.jpeg">
-            </div>
-            <div class="item">
-                <h3>6</h3>
-                <img src = "images/gomsun2.jpeg">
-            </div>
-            <div class="item ">
-                <h3>7</h3>
-                <img src = "images/gomsun1.jpeg">
-            </div>
-            <div class="item">
-                <h3>8</h3>
-                <img src = "images/gomsun2.jpeg">
-            </div>
-            <div class="item ">
-                <h3>9</h3>
-                <img src = "images/gomsun1.jpeg">
-            </div>
-            <div class="item">
-                <h3>10</h3>
-                <img src = "images/gomsun2.jpeg">
-            </div>
-         </div>
-</body>
-</html> 
+        <h1>CSS Transform</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </p>
+        <div class="box-container">
+            <div class="box">A</div>
+            <div class="box">B</div>
+            <div class="box">C</div>
+            <div class="box">D</div>
+            <div class="box">E</div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    </body>
+</html>
