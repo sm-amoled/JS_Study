@@ -7,27 +7,59 @@
         <link rel="stylesheet" href="style.css">
         
         <style>
+            .spaceship {
+                width: 150px;
+                height: 150px;
+                background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
+                animation: spaceship-ani 1s reverse infinite steps(17);
+            }
+            
+            @keyframes spaceship-ani {
+                0% /* === from*/ {
+                    
+                }
+                
+                to /* === 100%*/ {
+                    background-position: -2550px 0;    
+                }    
+            }
+            
             .box-container {
                 display: flex;
             }
+            @keyframes sample-ani {
+                0% {
+                    transform: translate(0,200px);
+                }
+                50% {
+                    background: #ff0000;
+                    transform: translate(500px, 0);
+                }
+                100% {
+                    background: #fff000;
+                    transform: translate(700px, 500px);
+                }
+            }
             .box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
                 width: 100px;
                 height: 100px;
-                border: 2px solid black;
-                background: rgba(255, 255, 0, 0.7);
+                border: 1px solid black;
+                background: #fff000;
                 
-                transition: 1s 2s;
-                /*transition은 수치에서 수치로 이동되는 중간과정을 애니메이션으로 만들어준다 → 숫자로 된 속성이 아니면 적용되지 않는다 (auto)*/
+                animation: sample-ani 2s 3 backwards;
+                animation-delay: 2s;
+                
+                
+                /*
+                애니메이션의 특징
+                키 프레임(변화가 있는 지점)을 넣을 수 있다. */
             }
             .box:hover {
-                /*transform: scale(2) rotate(30deg) skew(30deg);*/
-                /*transform: translate(30px, 10px);*/
-                /*transform: translateX(30px);*/
-                /*transform: translateY(30px);*/
-                transform: scale(2);
-                /*transform-origin: left top;*/
-                /*transform-origin: 0% 50%;*/
-                /*transform: rotate(30deg);*/
+                animation-play-state: paused;
             }
         </style>
     </head>
@@ -38,11 +70,8 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
         </p>
         <div class="box-container">
-            <div class="box">A</div>
-            <div class="box">B</div>
-            <div class="box">C</div>
-            <div class="box">D</div>
-            <div class="box">E</div>
+            <div class="spaceship"></div>
+
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
     </body>
