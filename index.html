@@ -7,72 +7,50 @@
         <link rel="stylesheet" href="style.css">
         
         <style>
-            .spaceship {
-                width: 150px;
-                height: 150px;
-                background: url('images/sprite_spaceship.png') no-repeat 0 0 / auto 150px;
-                animation: spaceship-ani 1s reverse infinite steps(17);
-            }
-            
-            @keyframes spaceship-ani {
-                0% /* === from*/ {
-                    
-                }
-                
-                to /* === 100%*/ {
-                    background-position: -2550px 0;    
-                }    
-            }
-            
-            .box-container {
+            .container {
+                /*Flex*/
                 display: flex;
+                /*flex-direction: row;*/
+                /*justify-content: center;*/
+                
+                height: 50vh;
+                background: gray;
             }
-            @keyframes sample-ani {
-                0% {
-                    transform: translate(0,200px);
-                }
-                50% {
-                    background: #ff0000;
-                    transform: translate(500px, 0);
-                }
-                100% {
-                    background: #fff000;
-                    transform: translate(700px, 500px);
-                }
+            .item {
+                padding: 2em;
+                border: 3px black solid;
+                background: white;
             }
-            .box {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                
-                width: 100px;
-                height: 100px;
-                border: 1px solid black;
-                background: #fff000;
-                
-                animation: sample-ani 2s 3 backwards;
-                animation-delay: 2s;
-                
-                
-                /*
-                애니메이션의 특징
-                키 프레임(변화가 있는 지점)을 넣을 수 있다. */
+            .item:nth-child(1) {
+                flex-grow: 1;
+	            flex-basis: 0;
             }
-            .box:hover {
-                animation-play-state: paused;
+            .item:nth-child(2) {
+                flex-grow: 1;
+        		flex-basis: 0;
+            }
+            .item:nth-child(3) {
+                flex-grow: 1;
+        		flex-basis: 0;
+            }
+            .item:nth-child(4) {
+                flex-grow: 1;
+        		flex-basis: 0;
+            }
+            .item:nth-child(5) {
+                flex-grow: 1;
+        		flex-basis: 0;
             }
         </style>
     </head>
     
     <body>
-        <h1>CSS Transform</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        </p>
-        <div class="box-container">
-            <div class="spaceship"></div>
-
+        <div class="container">
+            <div class="item">AAAAA</div>
+            <div class="item">BBBB</div>
+            <div class="item">CCC</div>
+            <div class="item">DD</div>
+            <div class="item">E</div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
     </body>
-</html>
+</html
