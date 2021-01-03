@@ -4,41 +4,129 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>repl.it</title>
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         
         <style>
-        img {
-            height: 200px;
-        }
-        .special {
-            border: 5px solid dodgerblue;
-        }
+
+        
+        
+        /*.GSS {*/
+        /*    background: yellow;*/
+        /*    display: flex;*/
+        /*    align-items: center;*/
+        /*    justify-content: space-around;*/
+        /*    padding: 3px;*/
+        /*}*/
+        /*img {*/
+        /*    width: 120px;*/
+        /*    cursor: pointer;*/
+        /*}*/
+        /*.special {*/
+        /*    border: 5px solid dodgerblue;*/
+        /*}*/
         </style>
     </head>
     
     <body>
-        <div class ="GSS">
-            <img id="GS1" class="gomsune" src="images/gomsun2.jpeg">
-            <img id="GS2" class="gomsune" src="images/gomsun1.jpeg">
-            <img id="GS3" class="gomsune special" src="images/gomsun3.png">
+        <div class="stage">
+            <div class="ilbuni"></div>    
+            <div class="ilbuni"></div>    
+            <div class="ilbuni"></div>    
         </div>
+        
         <script>
-            // const pElement = document.createElement('p');
-            // pElement.innerHTML = '<h1 id="hello">안녕</h1>';
+            (function() {
+                const ilbuniGroup = document.querySelectorAll('.ilbuni');
+                const stage = document.querySelector('.stage');
+                
+                // function clickHandler(e) {
+                //     console.log(this + " \ " + e.currentTarget);
+                //     // stage.removeChild(this);
+                //     this.parentNode.removeChild(this);
+                // }
+                // for(let i = 0; i < ilbuniGroup.length; i++) {
+                //     ilbuniGroup[i].addEventListener('click', clickHandler);
+                // }
+                
+                // 이벤트 위임
+                // Event 처리를 부모에게 위임 
+                // 생성하는 객체마다 event처리할 필요 X → 메모리 차지 덜 함, 성능 좋음
+                // 
+                function clickHandler(e) {
+                    if(e.target.classList.contains('ilbuni')) {
+                        stage.removeChild(e.target);
+                    }
+                }
+                
+                stage.addEventListener('click', clickHandler);
+                
+            }) (); // 초기 함수
             
-            // const gomsuneElement= document.querySelector('.gomsune');
-            // const GSS = document.querySelector('.GSS');
             
-            // gomsuneElement.appendChild(pElement);
-            // GSS.removeChild(document.querySelector('.gomsune'));
+        </script>
+        <!--<div class ="GSS">-->
+        <!--    <div class="ilbuni a">-->
+        <!--        <img id="GS1" class="gomsune" src="images/ilbuni_0.png">-->
+        <!--    </div>-->
+        <!--    <div class="ilbuni b">-->
+        <!--        <img id="GS2" class="gomsune" src="images/ilbuni_1.png">    -->
+        <!--    </div>-->
+        <!--    <div class="ilbuni c">-->
+        <!--        <img id="GS3" class="gomsune" src="images/ilbuni_2.png">    -->
+        <!--    </div>-->
+        <!--    <div class="ilbuni d">-->
+        <!--        <img id="GS4" class="gumsune" src="images/ilbuni_3.png">    -->
+        <!--    </div>-->
+        <!--</div>-->
+        <script>
+        //     (function() {
+        //         const ilbuni = document.querySelector('.ilbuni:nth-child(1)');
+        //         ilbuni.addEventListener('click', function() {
+        //             ilbuni.classList.toggle('special');
+        //         });
+                
+        //         const ilbuni2 = document.querySelector('.ilbuni.c');
+        //         ilbuni2.addEventListener('click', function() {
+        //             ilbuni2.classList.toggle('special');
+        //         });
+                
+        //         window.addEventListener('load', function() {
+        //             const ilbuni3 = document.querySelector('.ilbuni.b');
+        //             ilbuni3.addEventListener('click', function() {
+        //                 ilbuni3.classList.toggle('special');
+        //             });
+        //         });
+                
+        //         window.addEventListener('DOMContentLoaded', function() {
+        //             const ilbuni4 = document.querySelector('.ilbuni.d');
+        //             ilbuni4.addEventListener('click', function() {
+        //                 ilbuni4.classList.toggle('special');
+        //             });
+        //         });
+        //     })();
             
-            const gomsunImage = document.querySelector('.gomsune');
-            gomsunImage.classList.add('special');
-
-            const gomsunImage2 = document.querySelector('#GS3');
-            gomsunImage2.classList.remove('special');
             
-            gomsunImage2.classList.toggle('special');
+        //     // 전역변수
+        //     // 변수는 함수안에 넣거나 블럭 안에 넣으면 지역변수로 만들 수 있다. 
+        //     // (function () {~~}) (); 의 형태로 작성하면
+        //     // 익명함수를 바로 실행시키는 형태의 코드를 작성할 수 있다.
+            
+        //     (function() {
+        //         const GSS = document.querySelector('.GSS');
+                
+        //         function clickHandler(e) {
+        //             console.log(e.currentTarget + " / " + this);
+        //             console.log(e.target);
+        //         }
+                
+        //         GSS.addEventListener('click', clickHandler);
+        //     })();
+            
+        //     // 함수를 만들면, 자동으로 첫번째로 넘어오는 인자가 있다. : Event 객체
+        //     // e.currentTarget : 현재 다루고있는 객체 (대상)
+        //     // e.target : 내가 클릭한 지점에 딱 있는 객체
+        //     // this : 현재 다루고있는 객체. this는 JS 안에서는 다양한 걸 지칭할 수 있다.
         </script>
     </body>
-</html
+</html> 
