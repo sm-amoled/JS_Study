@@ -7,50 +7,38 @@
         <link rel="stylesheet" href="style.css">
         
         <style>
-            .container {
-                /*Flex*/
-                display: flex;
-                /*flex-direction: row;*/
-                /*justify-content: center;*/
-                
-                height: 50vh;
-                background: gray;
-            }
-            .item {
-                padding: 2em;
-                border: 3px black solid;
-                background: white;
-            }
-            .item:nth-child(1) {
-                flex-grow: 1;
-	            flex-basis: 0;
-            }
-            .item:nth-child(2) {
-                flex-grow: 1;
-        		flex-basis: 0;
-            }
-            .item:nth-child(3) {
-                flex-grow: 1;
-        		flex-basis: 0;
-            }
-            .item:nth-child(4) {
-                flex-grow: 1;
-        		flex-basis: 0;
-            }
-            .item:nth-child(5) {
-                flex-grow: 1;
-        		flex-basis: 0;
-            }
+        img {
+            height: 200px;
+        }
+        .special {
+            border: 5px solid dodgerblue;
+        }
         </style>
     </head>
     
     <body>
-        <div class="container">
-            <div class="item">AAAAA</div>
-            <div class="item">BBBB</div>
-            <div class="item">CCC</div>
-            <div class="item">DD</div>
-            <div class="item">E</div>
+        <div class ="GSS">
+            <img id="GS1" class="gomsune" src="images/gomsun2.jpeg">
+            <img id="GS2" class="gomsune" src="images/gomsun1.jpeg">
+            <img id="GS3" class="gomsune special" src="images/gomsun3.png">
         </div>
+        <script>
+            // const pElement = document.createElement('p');
+            // pElement.innerHTML = '<h1 id="hello">안녕</h1>';
+            
+            // const gomsuneElement= document.querySelector('.gomsune');
+            // const GSS = document.querySelector('.GSS');
+            
+            // gomsuneElement.appendChild(pElement);
+            // GSS.removeChild(document.querySelector('.gomsune'));
+            
+            const gomsunImage = document.querySelector('.gomsune');
+            gomsunImage.classList.add('special');
+
+            const gomsunImage2 = document.querySelector('#GS3');
+            gomsunImage2.classList.remove('special');
+            
+            gomsunImage2.classList.toggle('special');
+        </script>
     </body>
 </html
