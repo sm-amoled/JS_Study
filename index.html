@@ -6,127 +6,143 @@
         <title>repl.it</title>
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
-        
         <style>
-
-        
-        
-        /*.GSS {*/
-        /*    background: yellow;*/
-        /*    display: flex;*/
-        /*    align-items: center;*/
-        /*    justify-content: space-around;*/
-        /*    padding: 3px;*/
-        /*}*/
-        /*img {*/
-        /*    width: 120px;*/
-        /*    cursor: pointer;*/
-        /*}*/
-        /*.special {*/
-        /*    border: 5px solid dodgerblue;*/
-        /*}*/
+            .stage {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                width: 100vw;
+                height: 100vh;
+                background: #333;
+                
+            }
+            .door {
+                position: relative;
+                width: 100px;
+                height: 150px;
+                /*outline: 2px dashed yellow;*/
+                perspective: 800px;
+                
+            }
+            .door-opened .door-body {
+                transform: perspective(800px) rotateY(-110deg);
+            }
+            .door-opened .ilbuni{
+                transform: translate3d(0,0,0);
+            }
+            
+            .door-back {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: black;
+                overflow: hidden;
+            }
+            .ilbuni {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100px;
+                height: 100px;
+                
+                background-repeat: no-repeat;   /*이미지는 1번만*/
+                background-position: 50% 100%;  /*아래 중앙*/
+                background-size: contain;       /*이미지 모두 포함*/
+                
+                transform: translate3d(100%, 0, 0); /*100% → 원래 사이즈만큼이 100%. 여기에서는 100px*/
+                
+                transition: 0.5s;
+                transition-delay:0.5s;
+            }
+            .door:nth-child(1) .ilbuni{
+                background-image: url(images/ilbuni_0.png);
+            }
+            .door:nth-child(2) .ilbuni{
+                background-image: url(images/ilbuni_1.png);
+            }
+            .door:nth-child(3) .ilbuni{
+                background-image: url(images/ilbuni_2.png);
+            }
+            
+            .door-body {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transition: 0.5s;
+                transform-origin-x: 0%;
+            }
+            .door:nth-child(1) .door-body {
+                background: rgba(255,0,0,0.7);
+            }
+            .door:nth-child(2) .door-body {
+                background: rgba(0,255,0,0.7);
+            }
+            .door:nth-child(3) .door-body {
+                background: rgba(0,0,255,0.7);
+            }
         </style>
     </head>
     
     <body>
         <div class="stage">
-            <div class="ilbuni"></div>    
-            <div class="ilbuni"></div>    
-            <div class="ilbuni"></div>    
+            <div class="door">
+                <div class="door-back">
+                    <div class="ilbuni"></div>
+                </div>
+                <div class="door-body"></div>
+            </div>
+            <div class="door">
+                <div class="door-back">
+                    <div class="ilbuni"></div>
+                </div>
+                <div class="door-body"></div>
+            </div>
+            <div class="door">
+                <div class="door-back">
+                    <div class="ilbuni"></div>
+                </div>
+                <div class="door-body"></div>
+            </div>
         </div>
         
         <script>
+        // 이벤트 핸들러는 최대한 간결하게 작성할 것!
+        // 함수를 통해 묶어서 알아보기 쉬운 코드를 작성하자.
             (function() {
-                const ilbuniGroup = document.querySelectorAll('.ilbuni');
-                const stage = document.querySelector('.stage');
-                
-                // function clickHandler(e) {
-                //     console.log(this + " \ " + e.currentTarget);
-                //     // stage.removeChild(this);
-                //     this.parentNode.removeChild(this);
-                // }
-                // for(let i = 0; i < ilbuniGroup.length; i++) {
-                //     ilbuniGroup[i].addEventListener('click', clickHandler);
-                // }
-                
-                // 이벤트 위임
-                // Event 처리를 부모에게 위임 
-                // 생성하는 객체마다 event처리할 필요 X → 메모리 차지 덜 함, 성능 좋음
-                // 
-                function clickHandler(e) {
-                    if(e.target.classList.contains('ilbuni')) {
-                        stage.removeChild(e.target);
-                    }
-                }
-                
-                stage.addEventListener('click', clickHandler);
-                
-            }) (); // 초기 함수
-            
-            
-        </script>
-        <!--<div class ="GSS">-->
-        <!--    <div class="ilbuni a">-->
-        <!--        <img id="GS1" class="gomsune" src="images/ilbuni_0.png">-->
-        <!--    </div>-->
-        <!--    <div class="ilbuni b">-->
-        <!--        <img id="GS2" class="gomsune" src="images/ilbuni_1.png">    -->
-        <!--    </div>-->
-        <!--    <div class="ilbuni c">-->
-        <!--        <img id="GS3" class="gomsune" src="images/ilbuni_2.png">    -->
-        <!--    </div>-->
-        <!--    <div class="ilbuni d">-->
-        <!--        <img id="GS4" class="gumsune" src="images/ilbuni_3.png">    -->
-        <!--    </div>-->
-        <!--</div>-->
-        <script>
-        //     (function() {
-        //         const ilbuni = document.querySelector('.ilbuni:nth-child(1)');
-        //         ilbuni.addEventListener('click', function() {
-        //             ilbuni.classList.toggle('special');
-        //         });
-                
-        //         const ilbuni2 = document.querySelector('.ilbuni.c');
-        //         ilbuni2.addEventListener('click', function() {
-        //             ilbuni2.classList.toggle('special');
-        //         });
-                
-        //         window.addEventListener('load', function() {
-        //             const ilbuni3 = document.querySelector('.ilbuni.b');
-        //             ilbuni3.addEventListener('click', function() {
-        //                 ilbuni3.classList.toggle('special');
-        //             });
-        //         });
-                
-        //         window.addEventListener('DOMContentLoaded', function() {
-        //             const ilbuni4 = document.querySelector('.ilbuni.d');
-        //             ilbuni4.addEventListener('click', function() {
-        //                 ilbuni4.classList.toggle('special');
-        //             });
-        //         });
-        //     })();
-            
-            
-        //     // 전역변수
-        //     // 변수는 함수안에 넣거나 블럭 안에 넣으면 지역변수로 만들 수 있다. 
-        //     // (function () {~~}) (); 의 형태로 작성하면
-        //     // 익명함수를 바로 실행시키는 형태의 코드를 작성할 수 있다.
-            
-        //     (function() {
-        //         const GSS = document.querySelector('.GSS');
-                
-        //         function clickHandler(e) {
-        //             console.log(e.currentTarget + " / " + this);
-        //             console.log(e.target);
-        //         }
-                
-        //         GSS.addEventListener('click', clickHandler);
-        //     })();
-            
-        //     // 함수를 만들면, 자동으로 첫번째로 넘어오는 인자가 있다. : Event 객체
-        //     // e.currentTarget : 현재 다루고있는 객체 (대상)
-        //     // e.target : 내가 클릭한 지점에 딱 있는 객체
-        //     // this : 현재 다루고있는 객체. this는 JS 안에서는 다양한 걸 지칭할 수 있다.
+               const stageElement = document.querySelector('.stage');
+               let currentItem;
+               
+               function activate(elem) {
+                    elem.classList.add('door-opened'); 
+                    currentItem = elem;
+               }
+               
+               function inactivate(elem) {
+                    elem.classList.remove('door-opened');
+               }
+               
+               
+               function doorHandler(e) {
+                   const targetElement = e.target;
+                   
+                   if(currentItem) {
+                       inactivate(currentItem);
+                   }
+                   
+                   if(targetElement.classList.contains('door-body')) {
+                        activate(targetElement.parentNode);
+                   }
+               }
+               
+               stageElement.addEventListener('click', doorHandler);
+               
+               activate(document.querySelector('.door:nth-child(1)'))
+            }) ();
         </script>
     </body>
-</html> 
+</html>
