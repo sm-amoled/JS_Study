@@ -7,142 +7,104 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <style>
-            .stage {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                
-                width: 100vw;
-                height: 100vh;
-                background: #333;
-                
-            }
-            .door {
-                position: relative;
-                width: 100px;
-                height: 150px;
-                /*outline: 2px dashed yellow;*/
-                perspective: 800px;
-                
-            }
-            .door-opened .door-body {
-                transform: perspective(800px) rotateY(-110deg);
-            }
-            .door-opened .ilbuni{
-                transform: translate3d(0,0,0);
-            }
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             
-            .door-back {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background: black;
-                overflow: hidden;
-            }
-            .ilbuni {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100px;
-                height: 100px;
-                
-                background-repeat: no-repeat;   /*이미지는 1번만*/
-                background-position: 50% 100%;  /*아래 중앙*/
-                background-size: contain;       /*이미지 모두 포함*/
-                
-                transform: translate3d(100%, 0, 0); /*100% → 원래 사이즈만큼이 100%. 여기에서는 100px*/
-                
-                transition: 0.5s;
-                transition-delay:0.5s;
-            }
-            .door:nth-child(1) .ilbuni{
-                background-image: url(images/ilbuni_0.png);
-            }
-            .door:nth-child(2) .ilbuni{
-                background-image: url(images/ilbuni_1.png);
-            }
-            .door:nth-child(3) .ilbuni{
-                background-image: url(images/ilbuni_2.png);
-            }
-            
-            .door-body {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                transition: 0.5s;
-                transform-origin-x: 0%;
-            }
-            .door:nth-child(1) .door-body {
-                background: rgba(255,0,0,0.7);
-            }
-            .door:nth-child(2) .door-body {
-                background: rgba(0,255,0,0.7);
-            }
-            .door:nth-child(3) .door-body {
-                background: rgba(0,0,255,0.7);
-            }
+            width: 100px;
+            height: 150px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 3rem;
+            font-weight: 900;
+        }
         </style>
     </head>
-    
     <body>
-        <div class="stage">
-            <div class="door">
-                <div class="door-back">
-                    <div class="ilbuni"></div>
-                </div>
-                <div class="door-body"></div>
-            </div>
-            <div class="door">
-                <div class="door-back">
-                    <div class="ilbuni"></div>
-                </div>
-                <div class="door-body"></div>
-            </div>
-            <div class="door">
-                <div class="door-back">
-                    <div class="ilbuni"></div>
-                </div>
-                <div class="door-body"></div>
-            </div>
-        </div>
-        
+        <h1>Object</h1>
         <script>
-        // 이벤트 핸들러는 최대한 간결하게 작성할 것!
-        // 함수를 통해 묶어서 알아보기 쉬운 코드를 작성하자.
-            (function() {
-               const stageElement = document.querySelector('.stage');
-               let currentItem;
-               
-               function activate(elem) {
-                    elem.classList.add('door-opened'); 
-                    currentItem = elem;
-               }
-               
-               function inactivate(elem) {
-                    elem.classList.remove('door-opened');
-               }
-               
-               
-               function doorHandler(e) {
-                   const targetElement = e.target;
-                   
-                   if(currentItem) {
-                       inactivate(currentItem);
-                   }
-                   
-                   if(targetElement.classList.contains('door-body')) {
-                        activate(targetElement.parentNode);
-                   }
-               }
-               
-               stageElement.addEventListener('click', doorHandler);
-               
-               activate(document.querySelector('.door:nth-child(1)'))
-            }) ();
+        // 객체의 선언방법은 { }
+            const person = {};
+            person.name = "SM";
+            person.age = 23;
+            person.introduce = function() {
+                // 그냥 name이나 age로 사용하는 경우, 이를 const 또는 let, var로 선언된 변수라고 생각한다.
+                // 그래서 this. 키워드를 붙여주어야 한다.
+                // 메서드 내에서 this 키워드를 사용하면 주로 메서드를 호출한 주체 객체를 가리킨다.
+                // 전역변수로써의 this 키워드는 window를 가리킨다.
+                
+                console.log("안녕하세요? 저는 "+this.name+"이고, 나이는 "+this.age+"살이예요.");
+            };
+            // 함수도 값이다! 대입 연산자로 넣어주어야 한다.
+            // function의 형태로 입력된 값을 method라 부른다.
+            person.introduce();
+            
+            const gomsun = {
+                name: '곰순이',
+                age: 10,
+                introduce: function() {
+                    console.log("안녕하세요? 저는 "+this.name+"이고, 나이는 "+this.age+"살이예요.");
+                }
+            };
+            gomsun.introduce();
+            
+            // 생성자를 통해서 만들기
+            function Person(nickname, age) {
+                this.nickname = nickname;
+                this.age = age;
+                // this.introduce = function{
+                //     console.log("안녕하세요? 저는 "+this.nickname+"이고, 나이는 "+this.age+"살이예요.");
+                // }
+            }
+            
+            // 함수가 생성자로써 호출되게 만들고 싶다면 new 키워드를 붙인다.
+            const person1 = new Person();
+            const person2 = new Person();
+            
+            // 위 클래스에서 introduce를 굳이 모든 instance가 가질 필요가 없다. : 데이터 점유
+            // → 프로토타입을 이용하여 개선
+            Person.prototype.introduce = function() {
+                  this.introduce = function() {
+                    console.log("안녕하세요? 저는 "+this.nickname+"이고, 나이는 "+this.age+"살이예요.");
+                };
+            }
+            // 모든 instance가 공유하는 정보에 대해서는 굳이 instance마다 값을 (메서드를) 넣어줄 필요가 없고,
+            // 프로토타입을 이용해 공유하는 데이터를 명시하여, 점유하는 데이터를 줄일 수 있다.
+            
+            function Card(num, color) {
+                this.num = num;
+                this.color = color;
+            }
+            
+            Card.prototype.width = 100;
+            Card.prototype.height = 150;
+            
+            const card1 = new Card(1, 'green');
+            const card2 = new Card(7, 'blue');
+            
+            console.log(card1.width + " " + card2.width);
+            
+            function Card2(num, color) {
+                this.num = num;
+                this.color = color;
+                this.init();
+            }
+            
+            Card2.prototype = {
+                constructor: Card2, // 이러한 형태로 prototype을 선언하는 경우, constructor를 넣어줘야한다.
+                                    // 생성자로 instance를 만드는 방법!
+                init: function() {
+                    const mainElement = document.createElement('div');
+                    mainElement.style.color = this.color;
+                    mainElement.innerHTML = this.num;
+                    mainElement.classList.add('card');
+                    document.body.appendChild(mainElement);
+                }
+            };
+            
+            const card3 = new Card2(3, 'red');
+            const card4 = new Card2(6, 'blue');
         </script>
     </body>
 </html>
