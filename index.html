@@ -7,104 +7,69 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <style>
-        .card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            width: 100px;
-            height: 150px;
-            border: 2px solid black;
-            border-radius: 10px;
-            font-size: 3rem;
-            font-weight: 900;
-        }
+            .content {
+                height: 1000vh;
+                padding: 20%;
+                background: yellowgreen;
+            }
+            .output {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                font-size: 2rem;
+                font-weight: 200;
+                color: #fff;
+                background: rgba(0,0,0,0.4);
+            }
+            .ilbuni {
+                width: 100px;
+                margin: 20px auto;
+                transition: 1s;
+            }
+            .ilbuni.zoom {
+                transform: scale(2);
+            }
         </style>
     </head>
     <body>
-        <h1>Object</h1>
+        <div class="output">output</div>
+        <div class='content'>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <figure class="ilbuni">
+                <img src="images/ilbuni_0.png" alt="일분이">
+            </figure>
+        </div>
         <script>
-        // 객체의 선언방법은 { }
-            const person = {};
-            person.name = "SM";
-            person.age = 23;
-            person.introduce = function() {
-                // 그냥 name이나 age로 사용하는 경우, 이를 const 또는 let, var로 선언된 변수라고 생각한다.
-                // 그래서 this. 키워드를 붙여주어야 한다.
-                // 메서드 내에서 this 키워드를 사용하면 주로 메서드를 호출한 주체 객체를 가리킨다.
-                // 전역변수로써의 this 키워드는 window를 가리킨다.
+            (function() {
+                const outputElement = document.querySelector('.output');
+                const ilbuniElement = document.querySelector('.ilbuni');
                 
-                console.log("안녕하세요? 저는 "+this.name+"이고, 나이는 "+this.age+"살이예요.");
-            };
-            // 함수도 값이다! 대입 연산자로 넣어주어야 한다.
-            // function의 형태로 입력된 값을 method라 부른다.
-            person.introduce();
-            
-            const gomsun = {
-                name: '곰순이',
-                age: 10,
-                introduce: function() {
-                    console.log("안녕하세요? 저는 "+this.name+"이고, 나이는 "+this.age+"살이예요.");
+                function showValue() {
+                    let posY = ilbuniElement.getBoundingClientRect().top;
+                    outputElement.innerHTML = posY;
+                    
+                    if(posY < window.innerHeight * 0.2) {
+                        ilbuniElement.classList.add('zoom');
+                    } else {
+                        ilbuniElement.classList.remove('zoom');
+                    }
                 }
-            };
-            gomsun.introduce();
-            
-            // 생성자를 통해서 만들기
-            function Person(nickname, age) {
-                this.nickname = nickname;
-                this.age = age;
-                // this.introduce = function{
-                //     console.log("안녕하세요? 저는 "+this.nickname+"이고, 나이는 "+this.age+"살이예요.");
-                // }
-            }
-            
-            // 함수가 생성자로써 호출되게 만들고 싶다면 new 키워드를 붙인다.
-            const person1 = new Person();
-            const person2 = new Person();
-            
-            // 위 클래스에서 introduce를 굳이 모든 instance가 가질 필요가 없다. : 데이터 점유
-            // → 프로토타입을 이용하여 개선
-            Person.prototype.introduce = function() {
-                  this.introduce = function() {
-                    console.log("안녕하세요? 저는 "+this.nickname+"이고, 나이는 "+this.age+"살이예요.");
-                };
-            }
-            // 모든 instance가 공유하는 정보에 대해서는 굳이 instance마다 값을 (메서드를) 넣어줄 필요가 없고,
-            // 프로토타입을 이용해 공유하는 데이터를 명시하여, 점유하는 데이터를 줄일 수 있다.
-            
-            function Card(num, color) {
-                this.num = num;
-                this.color = color;
-            }
-            
-            Card.prototype.width = 100;
-            Card.prototype.height = 150;
-            
-            const card1 = new Card(1, 'green');
-            const card2 = new Card(7, 'blue');
-            
-            console.log(card1.width + " " + card2.width);
-            
-            function Card2(num, color) {
-                this.num = num;
-                this.color = color;
-                this.init();
-            }
-            
-            Card2.prototype = {
-                constructor: Card2, // 이러한 형태로 prototype을 선언하는 경우, constructor를 넣어줘야한다.
-                                    // 생성자로 instance를 만드는 방법!
-                init: function() {
-                    const mainElement = document.createElement('div');
-                    mainElement.style.color = this.color;
-                    mainElement.innerHTML = this.num;
-                    mainElement.classList.add('card');
-                    document.body.appendChild(mainElement);
-                }
-            };
-            
-            const card3 = new Card2(3, 'red');
-            const card4 = new Card2(6, 'blue');
+                
+                window.addEventListener('scroll', function() {
+                    // Y축 스크롤위치
+                    // outputElement.innerHTML = window.pageYOffset;
+                    // Element의 맨 처음 Y축 위치
+                    // outputElement.innerHTML = ilbuniElement.offsetTop;
+                    // Element의 스크롤 top으로부터 위치
+                    //getBoundingClientRect() 에서 위치를 가진 객체를 반환한다.
+                    outputElement.innerHTML = ilbuniElement.getBoundingClientRect().top;
+                    
+                    showValue();
+                })
+            }) ();
         </script>
     </body>
 </html>
