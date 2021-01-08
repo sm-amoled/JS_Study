@@ -7,69 +7,40 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <style>
-            .content {
-                height: 1000vh;
-                padding: 20%;
-                background: yellowgreen;
-            }
-            .output {
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100%;
-                font-size: 2rem;
-                font-weight: 200;
-                color: #fff;
-                background: rgba(0,0,0,0.4);
-            }
-            .ilbuni {
-                width: 100px;
-                margin: 20px auto;
+            .ball {
+                position: absolute;
+                
+                
+                width: 30px;
+                height: 30px;
+                background: red;
+                border-radius: 50%;
+                
                 transition: 1s;
             }
-            .ilbuni.zoom {
-                transform: scale(2);
+            .ball.end {
+                background: dodgerblue;
             }
         </style>
-    </head>
-    <body>
-        <div class="output">output</div>
-        <div class='content'>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <figure class="ilbuni">
-                <img src="images/ilbuni_0.png" alt="일분이">
-            </figure>
-        </div>
+        
+        <body>
+            <div class="ball"></div>
         <script>
-            (function() {
-                const outputElement = document.querySelector('.output');
-                const ilbuniElement = document.querySelector('.ilbuni');
-                
-                function showValue() {
-                    let posY = ilbuniElement.getBoundingClientRect().top;
-                    outputElement.innerHTML = posY;
-                    
-                    if(posY < window.innerHeight * 0.2) {
-                        ilbuniElement.classList.add('zoom');
-                    } else {
-                        ilbuniElement.classList.remove('zoom');
-                    }
-                }
-                
-                window.addEventListener('scroll', function() {
-                    // Y축 스크롤위치
-                    // outputElement.innerHTML = window.pageYOffset;
-                    // Element의 맨 처음 Y축 위치
-                    // outputElement.innerHTML = ilbuniElement.offsetTop;
-                    // Element의 스크롤 top으로부터 위치
-                    //getBoundingClientRect() 에서 위치를 가진 객체를 반환한다.
-                    outputElement.innerHTML = ilbuniElement.getBoundingClientRect().top;
-                    
-                    showValue();
-                })
-            }) ();
+            const ballElement = document.querySelector('.ball');
+            
+            window.addEventListener('click', function(e) {
+               ballElement.style.transform = "translate("+e.clientX-15+"px, "+e.clientY-15+"px)";
+            });
+            
+            // ballElement.addEventListener('transitionend', function() {
+            //     ballElement.classList.add('end');
+            //     // console.log(e.elapsedTime);
+            //     // console.log(e.propertyName);
+            // });
+            
+            // ballElement.addEventListener('transitionstart', function() {
+            //     ballElement.classList.remove('end');
+            // });
         </script>
     </body>
 </html>
