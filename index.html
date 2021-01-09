@@ -7,40 +7,47 @@
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <style>
+            @keyframes ball-ani {
+                from {
+                    transform: translate(0, 0);
+                }
+                to {
+                    transform: translate(200px, 200px);
+                }
+            }
             .ball {
                 position: absolute;
                 
                 
                 width: 30px;
                 height: 30px;
-                background: red;
+                background: dodgerblue;
                 border-radius: 50%;
-                
+                /*animation: ball-ani 1s 3 alternate forwards;   */
                 transition: 1s;
             }
+            
             .ball.end {
-                background: dodgerblue;
+                border: 5px solid #FFF000;
             }
         </style>
         
         <body>
+            <div id="Point">point</div>
             <div class="ball"></div>
         <script>
-            const ballElement = document.querySelector('.ball');
-            
-            window.addEventListener('click', function(e) {
-               ballElement.style.transform = "translate("+e.clientX-15+"px, "+e.clientY-15+"px)";
-            });
-            
-            // ballElement.addEventListener('transitionend', function() {
-            //     ballElement.classList.add('end');
-            //     // console.log(e.elapsedTime);
-            //     // console.log(e.propertyName);
-            // });
-            
-            // ballElement.addEventListener('transitionstart', function() {
-            //     ballElement.classList.remove('end');
-            // });
+        const ballElem = document.querySelector('.ball');
+
+        ballElem.addEventListener('touchstart', function() {
+           ballElem.style.animation = "animation: ball-ani 1s 3 alternate forward"; 
+        });
+        
+        ballElem.addEventListener('animationstart', function() {
+            ballElem.classList.add('end');
+        })
+        ballElem.addEventListener('animationiteration', function() {
+           //animation이 반복이 될 때마다 재생 
+        });
         </script>
     </body>
 </html>
