@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>repl.it</title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-        <style>
-            
-        </style>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	<title>CSS Flex</title>
+    	<link rel="stylesheet" href="default.css">
+    	<style>
+            .container {
+                height: 90vh;
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                align-items: strecth;
+                /*flex-wrap: wrap;*/
+            }
+            .item {
+                border: 2px dodgerblue solid;
+                background: yellow;
+                padding: 2px    ;
+            }
+    	</style>
     </head>
     <body>
-        <button class="btn">취소</button>
-        <script>
-            const cancle = document.querySelector('.btn');
-            function sample() {
-                console.log('sample!');
-            }
-            
-            timeout = setTimeout(sample, 3000);
-            clearTimeout(timeout);
-            
-            timeId = setInterval(sample, 2000);
-            clearInterval(timeId);
-            
-            
-            let n = 0;
-            
-            // 초당 60번 반복을 목표로 함
-            (function sample2() {
-                console.log(n);
-                
-                n++;
-                if(n>200) {
-                    return;
-                }
-                
-                timeRAF = requestAnimationFrame(sample2);
-            }) ();
-            
-            cancle.addEventListener('click', function() {
-                cancelAnimationFrame(timeRAF);
-            });
-        </script>
+    	<div class="container">
+	        <div class="item">helloflex</div>
+	        <div class="item">abc</div>
+	        <div class="item">helloflex</div>
+        </div>
     </body>
 </html>
