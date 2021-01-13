@@ -1,0 +1,82 @@
+body {
+    background: gray;
+}
+.menu {
+    display: flex;
+}
+.menu-item {
+    /*width: 25%;*/
+    flex-grow: 1;
+    flex-basis: 0;
+    /*flex-grow로 만들면 IE에서 작동하지 않을 수 있다.*/
+    background: gold;
+    transition: 0.4s;
+}
+.menu-item:hover {
+    flex-grow:1.5;
+    background: crimson;
+    /*width: 35%;*/
+}
+.menu-link {
+    display: block;
+    padding: 1em;
+    font-size: 1.2rem;  
+    /*font-size는 root 폰트 사이즈를 따라서 가겠다(rem)*/
+    /*padding은 현재 폰트 사이즈를 따라가겠다(em)*/
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+}
+.menu-link:hover {
+    color: white;
+}
+.search-form {
+    display: flex;
+    height: 40px;
+}
+.search-form input[type="search"] {
+    flex: 1;
+    margin-right: 10px;
+    border: 0;
+    font-size: 1rem;
+}
+.search-form input[type="submit"] {
+    width: 4em;
+    border: 0;
+    border-radius: 10%;
+    font-size: 1rem;
+    background: gold;
+}
+
+/*bullet list*/
+.info-list-item {
+    display: flex;
+    margin: 0.5em 0;
+}
+/*가상 element*/
+.info-list-item:before {
+    content: '⌘';
+    margin-right: 0.5em;
+}
+.info-list {
+	margin-bottom: 2rem;
+}
+
+/*매새지*/
+.user-item {
+    display: flex;
+    margin: 1em 0;
+    
+}
+.user-photo {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    margin: 0 0.5em;
+    border-radius: 50%;
+    background-color: gold;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 150%;
+}
