@@ -6,27 +6,74 @@
     	<meta http-equiv="X-UA-Compatible" content="ie=edge">
     	<title>CSS Flex</title>
     	<link rel="stylesheet" href="default.css">
+    	<link rel="stylesheet" href="reset.css">
     	<style>
-            .container {
-                height: 90vh;
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: flex-end;
-                align-items: strecth;
-                /*flex-wrap: wrap;*/
-            }
-            .item {
-                border: 2px dodgerblue solid;
-                background: yellow;
-                padding: 2px    ;
-            }
+    	    .page {
+    	        height: 100vh;
+    	        display: flex;
+    	        flex-direction: column;
+    	    }
+    	    .content {
+    	        padding: 1.5rem;
+    	    }
+    	    .header {
+    	        background: darkgray;
+    	        border: 3px black solid;
+    	    }
+    	    .footer {
+    	        background: darkgray;
+    	        border: 3px black solid;
+    	        margin-top: auto;
+    	    }
+    	
+		/*.flex-container {*/
+		/*	display: flex;*/
+			/* border: 10px solid red; */
+		/*	background: yellow;*/
+		/*}*/
+		/*.flex-item {*/
+		/*	background: dodgerblue;*/
+		/*	border: 2px black solid;*/
+		/*}*/
+		/*.flex-item:nth-child91) {*/
+		/*    flex-shrink: 0;*/
+		/*    width: 150px;*/
+		/*}*/
+		/*.flex-item:nth-child(2) {*/
+		/*    flex-grow: 1;*/
+		/*}*/
+		/*.flex-item:nth-child(3) {*/
+		/*    flex-shrink: 0;*/
+		/*    width: 200px;*/
+		/*}*/
+		
+		/*@media (min-width: 600px) {*/
+		/*	.flex-container {*/
+		/*		flex-direction: row;*/
+		/*		flex-wrap: wrap;*/
+		/*	}*/
+		/*	.flex-item {*/
+		/*		width: 50%;*/
+				/* flex-grow: 0; */
+				/* flex: 0 auto; */
+				/* flex-basis: 50%; */
+		/*	}*/
+		/*}*/
+		/*@media (min-width: 900px) {*/
+		/*    .flex-item {*/
+		/*        width: 30%;*/
+		/*        flex-grow: 1 auto;*/
+		/*    }*/
+		}
     	</style>
     </head>
     <body>
-    	<div class="container">
-	        <div class="item">helloflex</div>
-	        <div class="item">abc</div>
-	        <div class="item">helloflex</div>
+        <div class="page">
+            <header class="header flex-item">header</header>
+            <section class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </section>
+            <footer class="footer flex-item">footer</footer>
         </div>
     </body>
 </html>
