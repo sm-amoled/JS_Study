@@ -1,5 +1,5 @@
 body {
-    background: gray;
+    background: black;
 }
 .menu {
     display: flex;
@@ -80,3 +80,78 @@ body {
     background-position: top;
     background-size: 150%;
 }
+
+/*friend list*/
+.friend-item {
+    align-items: center;
+}
+.user-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.dialog {
+    width: 50vw;
+    padding: 2em;
+    border-radius: 1em;
+    background: white;
+}
+
+/*카드 리스트*/
+.card-item {
+    display: flex;
+    flex-direction: column;
+    /*flex로 지정하여 같은 행에 있는 카드끼리 높이를하공유하도록 만들기*/
+    margin-bottom: 2rem;
+}
+.card-image {
+    height: 0;
+    padding-bottom: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*패딩을 이용하면 가로와 세로의 크기가 같이 움직인다.*/
+    background: lightgray;
+}
+.card-image img {
+    display: none;
+}
+.card-desc {
+    flex: auto; 
+    /*자동으로 같은 행 끼리의 설명이 높이가 같도록 만드는 요소 (grow에 1을 주기)*/
+    padding: 1em;
+    background: white;
+}
+@media (min-width: 600px) {
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1rem; /*margin을 사용하여 패딩으로 추가된 좌, 우의 공백을 없앰*/
+    }
+    .card-item {
+        /*2단으로 나타내기*/
+        width: 50%;
+        padding: 0 1rem; /*padding을 삽입하여 card-item끼리의 거리를 띄워주기 */
+    }
+}
+
+@media (min-width: 900px) {
+    .card-item {
+        /*3단으로 나타내기*/
+        width: 33.3333%;
+    }
+}
+
