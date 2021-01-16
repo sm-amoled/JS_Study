@@ -1,0 +1,157 @@
+body {
+    background: black;
+}
+.menu {
+    display: flex;
+}
+.menu-item {
+    /*width: 25%;*/
+    flex-grow: 1;
+    flex-basis: 0;
+    /*flex-grow로 만들면 IE에서 작동하지 않을 수 있다.*/
+    background: gold;
+    transition: 0.4s;
+}
+.menu-item:hover {
+    flex-grow:1.5;
+    background: crimson;
+    /*width: 35%;*/
+}
+.menu-link {
+    display: block;
+    padding: 1em;
+    font-size: 1.2rem;  
+    /*font-size는 root 폰트 사이즈를 따라서 가겠다(rem)*/
+    /*padding은 현재 폰트 사이즈를 따라가겠다(em)*/
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+}
+.menu-link:hover {
+    color: white;
+}
+.search-form {
+    display: flex;
+    height: 40px;
+}
+.search-form input[type="search"] {
+    flex: 1;
+    margin-right: 10px;
+    border: 0;
+    font-size: 1rem;
+}
+.search-form input[type="submit"] {
+    width: 4em;
+    border: 0;
+    border-radius: 10%;
+    font-size: 1rem;
+    background: gold;
+}
+
+/*bullet list*/
+.info-list-item {
+    display: flex;
+    margin: 0.5em 0;
+}
+/*가상 element*/
+.info-list-item:before {
+    content: '⌘';
+    margin-right: 0.5em;
+}
+.info-list {
+	margin-bottom: 2rem;
+}
+
+/*매새지*/
+.user-item {
+    display: flex;
+    margin: 1em 0;
+    
+}
+.user-photo {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    margin: 0 0.5em;
+    border-radius: 50%;
+    background-color: gold;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 150%;
+}
+
+/*friend list*/
+.friend-item {
+    align-items: center;
+}
+.user-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.dialog {
+    width: 50vw;
+    padding: 2em;
+    border-radius: 1em;
+    background: white;
+}
+
+/*카드 리스트*/
+.card-item {
+    display: flex;
+    flex-direction: column;
+    /*flex로 지정하여 같은 행에 있는 카드끼리 높이를 공유하도록 만들기*/
+    margin-bottom: 2rem;
+}
+.card-image {
+    height: 0;
+    padding-bottom: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*패딩을 이용하면 가로와 세로의 크기가 같이 움직인다.*/
+    background: lightgray;
+}
+.card-image img {
+    display: none;
+}
+.card-desc {
+    flex: auto; 
+    /*자동으로 같은 행 끼리의 설명이 높이가 같도록 만드는 요소 (grow에 1을 주기)*/
+    padding: 1rem;
+    background: white;
+}
+@media (min-width: 600px) {
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1rem; /*margin을 사용하여 패딩으로 추가된 좌, 우의 공백을 없앰*/
+    }
+    .card-item {
+        /*2단으로 나타내기*/
+        width: 50%;
+        padding: 0 1rem; /*padding을 삽입하여 card-item끼리의 거리를 띄워주기 */
+    }
+}
+
+@media (min-width: 900px) {
+    .card-item {
+        /*3단으로 나타내기*/
+        width: 33.3333%;
+    }
+}
+
