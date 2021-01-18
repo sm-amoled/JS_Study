@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flex UI Practice</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="ui-page.css">
+</head>
+<body>
+    <div class="page">
+        <!--Header-->
+        <header class="header">
+            <h1 class="website-title">SM-AMOLED</h1>
+            <form class="search-form">
+                <input type="search" id="search_blank">
+                <input type="submit" id="search_btn" value="검색">
+            </form>
+        </header>
+        <!--menu-->
+        <div class="menu-list">
+            <div class="menu-item">
+                Home
+            </div>
+            <div class="menu-item">
+                HTML
+            </div>
+            <div class="menu-item">
+                CSS
+            </div>
+            <div class="menu-item">
+                JavaScript
+            </div>
+        </div>
+        <!--primary contents-->
+        <section class="primary">
+            <ul class="card-list"> 
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni4.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni1.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni2.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni3.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni1.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni4.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni1.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </li>
+                <li class="card-item">
+                    <div class="card-image" style="background-image: url(images/gomsuni3.jpeg)"></div>
+                    <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </li>
+            </ul>
+            
+        </section>
+        <!--secondary A-->
+        <aside class="secondary secondary-a">
+            <ul class="message-list">
+                <li class="message-item">
+                    <!--이미지를 figure 태그의 background로 지정하는 경우 img를 사용하는 것 보다 CSS로 다루기 쉬워진다-->
+                    <p class="massage">Lorem Ipsum is the single greatest threat. We are not - we are not 이하 중략 </p>
+                </li>
+                <li class="message-item">
+                    <p class="massage">Lorem Ipsum is the single greatest threat. world has never seen.</p>
+                </li>
+                <li class="message-item">
+                    <p class="massgae">Lorem Ipsum is the single greatest threat. We are not - we are 이하 중략 </p>
+                </li>
+            </ul>
+        </aside>
+        <!--secondary B-->
+        <aside class="secondary secondary-b">
+            <ul class="user-list">
+                <li class="user-item">
+                    <figure class="user-photo" style="background-image: url(images/ilbuni.png)"></figure>
+                    <!--이미지를 figure 태그의 background로 지정하는 경우 img를 사용하는 것 보다 CSS로 다루기 쉬워진다-->
+                    <p class="">Lorem Ipsum is the single greatest threat. We are not - we are not 이하 중략 </p>
+                <li class="user-item">
+                    <figure class="user-photo" style="background-image: url(images/ilbuni.png)"></figure>
+                    <p class="">Lorem Ipsum is the single greatest threat. world has never seen.</p>
+                </li>
+                <li class="user-item">
+                    <figure class="user-photo" style="background-image: url(images/ilbuni.png)"></figure>
+                    <p class="">Lorem Ipsum is the single greatest threat. We are not - we are 이하 중략 </p>
+                </li>
+            </ul>
+        </aside>
+        <!--footer-->
+        <footer class="footer">
+            Lorem ipsum is the single greatest threat.    
+        </footer>
+    </div>
+    
+    <input type="checkbox" id="modal-btn">
+    <label for="modal-btn">
+                    <span>modal 열고 닫기</span>
+                </label>
+    
+    <div class="modal">
+        <div class="dialog">
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+    </div>        
+</body>
+</html>

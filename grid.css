@@ -1,0 +1,19 @@
+
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+}
+
+
+.grid-item {
+    background: orange;
+    border: 2px black solid;
+}
