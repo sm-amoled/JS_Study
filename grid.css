@@ -1,17 +1,23 @@
-
-
-
-
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas:
+        "header header ..."
+        "sidebar-a main sidebar-b"
+        "footer footer footer";
 }
+
+.header { grid-area: header; }
+.sidebar-a { grid-area: sidebar-a; }
+.sidebar-b { grid-area: sidebar-b; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+
 
 .grid-container2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, auto));
 }
-
 
 .grid-item {
     background: orange;
